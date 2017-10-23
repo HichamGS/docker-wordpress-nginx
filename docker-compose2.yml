@@ -1,0 +1,39 @@
+version: '2'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./config/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/nginx/logs:/var/log/nginx
+      - ./wordpress:/var/www/html
+    links:
+      - wordpress:phpfpm
+    restart: always
+  
+  mysql:
+    image: mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    restart: always
+  
+  wordpress:
+    image: wordpress:4.8-php7.0-fpm-alpine
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./wordpress:/var/www/html
+    environment:
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_PASSWORD=password
+    links:
+      - mysql
+    restart: always
