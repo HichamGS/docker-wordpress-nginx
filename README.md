@@ -4,7 +4,7 @@ WordPress container with Nginx and PHP-FPM 7 based on Alpine Linux.
 _WordPress version currently installed:_ **4.8** 
 	
 	* You can easy update wordpress version if you want by changing it into docker compose file
-	* This config is doesn't include anything that we don't absolutely need in the runtime.
+	* This config doesn't include anything that we don't absolutely need in the runtime.
 
 ## Usage 
 
@@ -12,7 +12,6 @@ _WordPress version currently installed:_ **4.8**
 
 
 | Compose file format | Docker Engine version |
-
 | --- | --- |
 | 3.0 | 1.13.0+ |
 | 2.0 | 1.10.0+ |
