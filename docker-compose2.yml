@@ -24,7 +24,7 @@ services:
     restart: always
   
   wordpress:
-    image: wordpress:4.8-php7.0-fpm-alpine
+    image: wordpress:4.9-php7.0-fpm-alpine
     ports:
       - '9000:9000'
     volumes:
