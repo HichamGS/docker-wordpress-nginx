@@ -24,7 +24,7 @@ services:
     restart: always
   
   wordpress:
-    image: wordpress:5.0.3-php7.1-fpm-alpine
+    image: wordpress:5.5.1-php7.2-fpm-alpine
     #container_name: website-wordpress
     volumes:
       - ./wordpress:/var/www/html
